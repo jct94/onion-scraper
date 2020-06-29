@@ -1,22 +1,23 @@
-#Author - Shivam Kapoor (ConanKapoor).
+import sys
+import re
+import os
 
-#Importing Essentials
 import urllib.request
+
+#scraping library
 from bs4 import BeautifulSoup
-import sys,re,os
 
-#######################################################################################################################
-################################################ TOR CONNECTION BELOW #################################################
-#######################################################################################################################
 
-#Importing Stem libraries
+#Tor connection protocol - stem lib
 from stem import Signal
 from stem.control import Controller
-import socks, socket
+
+import socks
+import socket
 
 #Initiating Connection
 with Controller.from_port(port=9051) as controller:
-    controller.authenticate("16:AE80E3930E42F7A3606823FA19CD0A3E721813EF8798ABFE86DB91DD09")
+    controller.authenticate("16:404611117881919D60FDE86DEE8A97B9C744F0D35E5D2E96DF6C04C71E")
     controller.signal(Signal.NEWNYM)
 
 # TOR SETUP GLOBAL Vars
