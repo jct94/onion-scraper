@@ -24,9 +24,12 @@ def scraper_execution(url):
     """
     Command line emulator for scraping
     """
-    execute = str('python3 src/helper.py' + url + '\'')
+    execute = str('python3 src/helper.py + url')
     print(execute)
-    os.system(execute)
+    try:
+        os.system(execute)
+    except:
+        logging.error("Scraping failed")
 
 
 #multiprocessing wrapper for execution

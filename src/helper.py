@@ -15,6 +15,7 @@ from stem.control import Controller
 import socks
 import socket
 
+
 #Initiating connectiom
 with Controller.from_port(port=9051) as controller:
     controller.authenticate("16:404611117881919D60FDE86DEE8A97B9C744F0D35E5D2E96DF6C04C71E")
@@ -24,6 +25,8 @@ with Controller.from_port(port=9051) as controller:
 SOCKS_PORT = 9050
 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", SOCKS_PORT)
 socket.socket = socks.socksocket
+
+print('line 28')
 
 #DNS-Resolution
 def getaddrinfo(*args):
@@ -45,7 +48,7 @@ def scrape(url, timeout_value = 10):
 
     #collecting html content.
     headers = {'User-Agent': 'Onion services scrapper | github.com/jct94/TorScrapper.git' }
-    req = urllib.request.Request(url,data = None, headers)
+    req = urllib.request.Request(url,headers=headers)
     response = urllib.request.urlopen(req)
 
     #load response - print some info
