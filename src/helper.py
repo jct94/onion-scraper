@@ -21,7 +21,7 @@ with Controller.from_port(port=9051) as controller:
     controller.signal(Signal.NEWNYM)
 
 #TOR-Config
-SOCKS_PORT = 9050  # TOR proxy port that is default from torrc, change to whatever torrc is configured to
+SOCKS_PORT = 9050
 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", SOCKS_PORT)
 socket.socket = socks.socksocket
 
@@ -38,7 +38,7 @@ def scrape(url, timeout_value = 10):
     Core function : Scrape URL HTML content using bs4
     -------------------------------------------------
     url : onion hidden service
-    timeout : default value 60000ms - can be bigger for onion services
+    timeout : default value 60000ms - can be larger for onion services
     """
     timeout = timeout_value
     socket.setdefaulttimeout(timeout)
@@ -50,10 +50,10 @@ def scrape(url, timeout_value = 10):
 
     #load response - print some info
     content = response.read()
-    #try:
-    #    print("Response has a length of {}".format(len(content)))
-    #except ValueError:
-    #    print("Not a valid input : go ahead")
+    try:
+        print("Response has a length of {}".format(len(content)))
+    except ValueError:
+        print("Not a valid input : go ahead")
 
     #parse html response
     page = BeautifulSoup(content,'html.parser')
