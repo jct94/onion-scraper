@@ -1,64 +1,88 @@
-import sys
-import re
 import os
+import argparse
 
-import urllib.request
+#multiprocess request
+from multiprocessing import Pool
 
-#scraping library
-from bs4 import BeautifulSoup
+#nice figlet when running on terminal
+from pyfiglet import Figlet
+
+#onion.txt containing hidden services adresses
+with open("onions.txt", "r") as onion:
+    content = onion.read().splitlines()
 
 
-#Tor connection protocol - stem lib
-from stem import Signal
-from stem.control import Controller
+def editor():
+    """
+    Add links to onions.txt using nano terminal text editor
+    """
+    command = "nano onions.txt"
+    os.system(command)
 
-import socks
-import socket
 
-#Initiating Connection
-with Controller.from_port(port=9051) as controller:
-    controller.authenticate("16:404611117881919D60FDE86DEE8A97B9C744F0D35E5D2E96DF6C04C71E")
-    controller.signal(Signal.NEWNYM)
+def scraper_execution(url):
+    """
+    Command line emulator for scraping
+    """
+    execute = str('python3 src/helper.py' + url + '\'')
+    print (execute)
+    os.system(execute)
 
-# TOR SETUP GLOBAL Vars
-SOCKS_PORT = 9050  # TOR proxy port that is default from torrc, change to whatever torrc is configured to
-socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", SOCKS_PORT)
-socket.socket = socks.socksocket
 
-# Perform DNS resolution through the socket
-def getaddrinfo(*args):
-    return [(socket.AF_INET, socket.SOCK_STREAM, 6, '', (args[0], args[1]))]
+#multiprocessing wrapper for execution
+def multiprocessing(task, processes=10):
+    """
+    Multiprocessing wrapper
+    Clear former output directory and create a new one
+    --------------------------------------------------
+    task : scraper_execution or editor
+    processes : Number of URLs that will be processed at the same time
+    """
 
-socket.getaddrinfo = getaddrinfo
-
-#######################################################################################################################
-################################################ TOR CONNECTION ABOVE #################################################
-#######################################################################################################################
-
-#Scrapping Onion links.
-def Scrape(url):
-    timeout = 10
-    socket.setdefaulttimeout(timeout)
-
-    #Collecting html content.
-    headers = {'User-Agent': 'TorScrapper - Onion scrapper | github.com/ConanKapoor/TorScrapper.git' }
-    req = urllib.request.Request(url,None,headers)
-    response = urllib.request.urlopen(req)
-
-    #Using BeautifulSoup to parse html object response.
-    page = BeautifulSoup(response.read(),'html.parser')
-
-    #Saving output
-    token = re.sub(r'[^\w]', '', url)
-    name = os.path.abspath("") + '/Output/Scraped-' + token +'.html'
-    file = open(name,'w')
-    file.write(str(page))
-    file.close()
-
-# Taking input.
-if __name__=='__main__':
-    if (len(sys.argv)==2):
-        url=sys.argv[1]
-        Scrape(url)
+    #Set output directory as /output
+    if (os.path.exists("output")):
+        delete_command = str('rm -r output')
+        os.system(delete_command)
+        os.makedirs("output")
     else:
-        print("Invalid input")
+        os.makedirs("output")
+
+    with Pool(processes) as pool:
+        for onion in range(0, len(content)):
+            pool.apply(task, args=(content[onion],))
+
+
+
+#Program banner
+def banner():
+    banner = Figlet(font='slant')
+    print (banner.renderText('TorScraper'))
+    print ("\n")
+
+#Program menu
+def menu():
+    print ("Please select one of the following options:- \n")
+    print (" 1. Add links to onions.txt input file")
+    print (" 2. Scrap hidden services present in onions.txt")
+    print (" 3. Exit.\n")
+
+if __name__ == '__main__':
+    scrap_active = 1
+    try:
+        while(scrap_active):
+            os.system("clear")
+            banner()
+            menu()
+            choice = int(input("Choose one option: "))
+            print("\n")
+
+            if choice == 1:
+                editor()
+            elif choice == 2:
+                multiprocessing(scraper_execution)
+            else:
+                scrap_active = 0
+                quit()
+
+    except KeyboardInterrupt:
+        print("\n\nInterrupt received! Exiting cleanly...\n")
