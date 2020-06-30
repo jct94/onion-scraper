@@ -50,10 +50,10 @@ def scrape(url, timeout_value = 10):
 
     #load response - print some info
     content = response.read()
-    try:
-        print("Response has a length of {}".format(len(content)))
-    except ValueError:
-        print("Not a valid input : go ahead")
+    #try:
+    #    print("Response has a length of {}".format(len(content)))
+    #except ValueError:
+    #    print("Not a valid input : go ahead")
 
     #parse html response
     page = BeautifulSoup(content,'html.parser')
@@ -66,7 +66,6 @@ def scrape(url, timeout_value = 10):
     file.write(str(page.text))
     file.close()
 
-# Taking input.
 if __name__=='__main__':
 
     if len(sys.argv) > 2:

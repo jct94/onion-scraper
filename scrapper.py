@@ -25,7 +25,7 @@ def scraper_execution(url):
     Command line emulator for scraping
     """
     execute = str('python3 src/helper.py' + url + '\'')
-    print (execute)
+    print(execute)
     os.system(execute)
 
 
