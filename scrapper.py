@@ -1,5 +1,4 @@
 import os
-import argparse
 
 #multiprocess request
 from multiprocessing import Pool
@@ -24,7 +23,7 @@ def scraper_execution(url):
     """
     Command line emulator for scraping
     """
-    execute = str('python3 src/helper.py + url')
+    execute = 'python3 src/helper.py + {}'.format(url)
     print(execute)
     try:
         os.system(execute)
@@ -42,7 +41,7 @@ def multiprocessing(task, processes=10):
     processes : Number of URLs that will be processed at the same time
     """
 
-    #Set output directory as /output
+    #output directory
     if (os.path.exists("output")):
         delete_command = str('rm -r output')
         os.system(delete_command)
@@ -53,8 +52,6 @@ def multiprocessing(task, processes=10):
     with Pool(processes) as pool:
         for onion in range(0, len(content)):
             pool.apply(task, args=(content[onion],))
-
-
 
 #Program banner
 def banner():

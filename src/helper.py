@@ -18,7 +18,7 @@ import socket
 
 #Initiating connectiom
 with Controller.from_port(port=9051) as controller:
-    controller.authenticate("16:404611117881919D60FDE86DEE8A97B9C744F0D35E5D2E96DF6C04C71E")
+    controller.authenticate("16:872860B76453A77D60CA2BB8C1A7042072093276A3D701AD684053EC4C")
     controller.signal(Signal.NEWNYM)
 
 #TOR-Config
@@ -26,7 +26,6 @@ SOCKS_PORT = 9050
 socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", SOCKS_PORT)
 socket.socket = socks.socksocket
 
-print('line 28')
 
 #DNS-Resolution
 def getaddrinfo(*args):
@@ -72,6 +71,7 @@ def scrape(url, timeout_value = 10):
 if __name__=='__main__':
 
     if len(sys.argv) > 2:
+        print(sys.argv)
         print('You have specified too many arguments')
         sys.exit()
 
