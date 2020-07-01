@@ -3,8 +3,7 @@ A basic scrapper made in python with BeautifulSoup and Tor support to -
 
 * Scrape Onion and normal links.
 * Save the output in html format in Output folder.
-* Filter the html output and strip out useful data only (Work in Progress).
-* Striping out IOCs and other related data (On To-Do list).
+
 
 ## Getting Started
 
@@ -67,33 +66,14 @@ A step by step series of examples that tells what you have to do to get this pro
 [nano]/[vim]/[gedit]/[Your choice of editor] onions.txt
 ```
 
-* Run TorScrapper.py using Python3
+* Run scrapper.py using Python3
 
 ```
-[sudo] python3 TorScrapper.py
+[sudo] python3 scrapper.py
 ```
 
 * Check the scraped outputs in Output folder.
 
 
-## Built With
-
-* [Python](https://www.python.org/) - Python programming language.
-* [Tor](https://www.torproject.org/) - If you don't know about Tor then you probably shouldn't be here :)
-* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Beautiful Soup is a Python library for pulling data out of HTML and XML files.
-
-## Contributing
-
-If you have new ideas which is worth implementing, mention those by starting a new issue with the title [FEATURE_REQUEST]. If the idea is worth implementing, congratz you are now a contributor.
-
-## Versioning
-
-Version 1.something Mehh...
-
-## Authors
-
-* **Shivam Kapoor** - An avid learner who likes to know every tiny detail in working of real life systems. Real enthusiast of cyber security and underlying networking concepts. (Email - kapoor.shivam88@gmail.com)
-
-## License
-
-Too lazy to decide on a License. zZzZ
+#### Authors
+Credit to @ConanKapoor for most job done here.
