@@ -23,7 +23,7 @@ def scraper_execution(url):
     """
     Command line emulator for scraping
     """
-    execute = 'python3 src/helper.py + {}'.format(url)
+    execute = 'python3 src/helper.py ' + '{}'.format(url)
     print(execute)
     try:
         os.system(execute)
@@ -63,8 +63,8 @@ def banner():
 def menu():
     print ("Please select one of the following options:- \n")
     print (" 1. Add links to onions.txt input file")
-    print (" 2. Scrap hidden services present in onions.txt")
-    print (" 3. Exit.\n")
+    print (" 2. Scrap hidden services URLs present in onions.txt")
+    print (" 3. Exit program.\n")
 
 if __name__ == '__main__':
     scrap_active = 1

@@ -52,21 +52,26 @@ def scrape(url, timeout_value = 10):
 
     #load response - print some info
     content = response.read()
+
     try:
-        print("Response has a length of {}".format(len(content)))
+        print("Including html tags, response has a length of {}".format(len(content)))
+        print(content)
     except ValueError:
-        print("Not a valid input : go ahead")
+        print("Scraping failed - It can be a dead link")
+        pass
 
     #parse html response
     page = BeautifulSoup(content,'html.parser')
 
     #output id
-    id = re.sub(r'[^\w]', '', url)
+    id = re.sub(r'[^\w]', '', url[5:])
     name = os.path.abspath("") + '/output/scraped-' + id + '.txt'
     #output saving
     file = open(name,'w')
     file.write(str(page.text))
     file.close()
+
+
 
 if __name__=='__main__':
 
