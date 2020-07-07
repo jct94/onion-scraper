@@ -6,26 +6,6 @@ A basic scrapper made in python with BeautifulSoup and Tor support to -
 * Filter the html output and strip out useful data only (Work in Progress).
 * Striping out IOCs and other related data (On To-Do list).
 
-## Getting Started
-
-### Setting up Vagrant VM to run tor - First install vagrant and virtualbox :
-
-* Init your directory
-`vagrant init ubuntu/bionic64`  
-
-* Build VM - Connect using ssh tunneling
-`vagrant up`    
-`vagrant ssh`  
-
-Once you are connected, make sure you work in `/vagrant` directory and you set up your python virtualenv on VM's root to avoid synchronization issues - `/vagrant` directory is by default synchronized with your initialised local repo :
-
-`python -m venv ~/env`  
-`source ~/env/bin/activate`    
-`pip install -r requirements.txt`
-
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
 ## Basic setup
 Before you run the torBot make sure the following things are done properly:
 
