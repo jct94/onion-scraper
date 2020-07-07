@@ -53,22 +53,9 @@ Otherwise, if you are using Tor without Tor Browser, it looks for the torrc file
 
 Once you've created or changed your torrc file, you will need to restart tor for the changes to take effect. (For advanced users, note that you actually only need to send Tor a HUP signal, not actually restart it.)
 
-## torrc
-
-#This provides a port for our script to talk with. If you set this then be
-#sure to also set either CookieAuthentication *or* HashedControlPassword!
-#
-#You could also use ControlSocket instead of ControlPort, which provides a
-#file based socket. You don't need to have authentication if you use
-#ControlSocket. For this example however we'll use a port.
+## torrc - Uncomment the following lines
 
 ControlPort 9051
-
-#Setting this will make Tor write an authentication cookie. Anything with
-#permission to read this file can connect to Tor. If you're going to run
-#your script with the same user or permission group as Tor then this is the
-#easiest method of authentication to use.
-
 CookieAuthentication 1
 
 #Alternatively we can authenticate with a password. To set a password first
