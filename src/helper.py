@@ -18,7 +18,7 @@ import socket
 
 #Initiating connectiom
 with Controller.from_port(port=9051) as controller:
-    controller.authenticate("16:872860B76453A77D60CA2BB8C1A7042072093276A3D701AD684053EC4C")
+    controller.authenticate("16:5F3D47AFB6AD37B560E949049AFD135F5C1AF4728398DE1A29E5473A2D")
     controller.signal(Signal.NEWNYM)
 
 #TOR-Config
