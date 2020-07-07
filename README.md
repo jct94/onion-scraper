@@ -39,9 +39,8 @@ or `brew service tor start` for MacOS user
 
 * Modify value in scrapper.py
 
-* Go to /etc/tor/torrc and uncomment - _**ControlPort 9051**_
+* Go to /etc/tor/torrc and uncomment - _**ControlPort 9051**_ , you may consider accessing torrc config file using `sudo nano torrc` to be able to save it
 
-Read more about torrc here : [Torrc](https://github.com/ConanKapoor/TorScrapper/blob/master/Tor.md)
 
 ### Deployment
 
