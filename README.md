@@ -74,19 +74,3 @@ HashedControlPassword 16:E600ADC1B52C80BB6022A0E999A7734571A451EB6AE50FED489B72E
 * [Python](https://www.python.org/) - Python programming language.
 * [Tor](https://www.torproject.org/) - If you don't know about Tor then you probably shouldn't be here :)
 * [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Beautiful Soup is a Python library for pulling data out of HTML and XML files.
-
-## Contributing
-
-If you have new ideas which is worth implementing, mention those by starting a new issue with the title [FEATURE_REQUEST]. If the idea is worth implementing, congratz you are now a contributor.
-
-## Versioning
-
-Version 1.something Mehh...
-
-## Authors
-
-* **Shivam Kapoor** - An avid learner who likes to know every tiny detail in working of real life systems. Real enthusiast of cyber security and underlying networking concepts. (Email - kapoor.shivam88@gmail.com)
-
-## License
-
-Too lazy to decide on a License. zZzZ
