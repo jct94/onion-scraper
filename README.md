@@ -20,7 +20,7 @@ A basic scrapper made in python with BeautifulSoup and Tor support to -
 Once you are connected, make sure you work in `/vagrant` directory and you set up your python virtualenv on VM's root to avoid synchronization issues - `/vagrant` directory is by default synchronized with your initialised local repo :
 
 `python -m venv ~/env`  
-`source ~/env/bin/activate`
+`source ~/env/bin/activate`    
 `pip install -r requirements.txt`
 
 
