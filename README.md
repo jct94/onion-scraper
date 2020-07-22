@@ -28,7 +28,7 @@ or `brew service tor start` for MacOS user
 ```
 pip install virtualenv    
 virtualenv yourenv   
-source youenv/bin/activate    
+source yourenv/bin/activate    
 pip install -r requirements.txt    
 ```
 
