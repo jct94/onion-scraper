@@ -24,12 +24,13 @@ or `brew service tor start` for MacOS user
 ### Deployment
 
 * Create your virtualenv and install requirements by running the following commands :
+
 `pip install virtualenv`  
 `virtualenv yourenv`   
 `source youenv/bin/activate`   
 `pip install -r requirements.txt`
 
-   
+
 A step by step series of examples that tells what you have to do to get this project running -
 
 * Enter the project directory.
