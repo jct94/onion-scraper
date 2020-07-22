@@ -1,10 +1,9 @@
 # TorScrapper
 A basic scrapper made in python with BeautifulSoup and Tor support to -
 
-* Scrape Onion and normal links.
-* Save the output in html format in Output folder.
-* Filter the html output and strip out useful data only (Work in Progress).
-* Striping out IOCs and other related data (On To-Do list).
+* Scrape hidden services - Crawling functionality has not been included
+* Save the output in html - Can be a great input for machine learning algorithms
+
 
 ## Basic setup
 Before you run the torBot make sure the following things are done properly:
@@ -27,7 +26,7 @@ or `brew service tor start` for MacOS user
 A step by step series of examples that tells what you have to do to get this project running -
 
 * Enter the project directory.
-* Copy all the onion and normal links you want to scrape in _onions.txt_
+* Copy all the onion and normal links you want to scrape in _onions.txt_ - You can find onion hidden services by subscribing to Hunchly newsletter
 
 ```
 [nano]/[vim]/[gedit]/[Your choice of editor] onions.txt
@@ -69,8 +68,6 @@ CookieAuthentication 1
 HashedControlPassword 16:E600ADC1B52C80BB6022A0E999A7734571A451EB6AE50FED489B72E3DF
 
 
-## Built With
+## LICENSE
 
-* [Python](https://www.python.org/) - Python programming language.
-* [Tor](https://www.torproject.org/) - If you don't know about Tor then you probably shouldn't be here :)
-* [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Beautiful Soup is a Python library for pulling data out of HTML and XML files.
+MIT LICENSE
