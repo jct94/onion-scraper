@@ -18,8 +18,17 @@ import socket
 
 #Initiating connectiom
 with Controller.from_port(port=9051) as controller:
-    controller.authenticate("insert_your_hash_password")
+    
+    try:
+        controller.authenticate("insert_your_hashed_password")
+    except Exception as e:
+        print("""Wrong credentials - Verify your tor hashed password and
+                 insert it properly within helper.py scripts""")
+    else:
+        print("Authentication succeeded")
+
     controller.signal(Signal.NEWNYM)
+    print("New TOR connection processed")
 
 #TOR-Config
 SOCKS_PORT = 9050
