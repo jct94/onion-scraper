@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 #Tor connection protocol - stem lib
 from stem import Signal
 from stem.control import Controller
+from toripchanger import TorIpChanger
 
 import socks
 import socket
@@ -18,9 +19,9 @@ import socket
 
 #Initiating connectiom
 with Controller.from_port(port=9051) as controller:
-    
+
     try:
-        controller.authenticate("insert_your_hashed_password")
+        controller.authenticate("16:529522CE3B4EB634609F2D0117A2D10121D91B5E438F2A580631717B7C")
     except Exception as e:
         print("""Wrong credentials - Verify your tor hashed password and
                  insert it properly within helper.py scripts""")
@@ -36,6 +37,8 @@ socks.setdefaultproxy(socks.PROXY_TYPE_SOCKS5, "127.0.0.1", SOCKS_PORT)
 socket.socket = socks.socksocket
 
 
+
+
 #DNS-Resolution
 def getaddrinfo(*args):
     return [(socket.AF_INET, socket.SOCK_STREAM, 6, '', (args[0], args[1]))]
@@ -44,13 +47,17 @@ socket.getaddrinfo = getaddrinfo
 
 
 #Scrapping Onion links.
-def scrape(url, timeout_value = 10):
+def scrape(url, timeout_value = 10, reuse_threshold=0):
     """
     Core function : Scrape URL HTML content using bs4
     -------------------------------------------------
     url : onion hidden service
     timeout : default value 60000ms - can be larger for onion services
+    reuse_threshold : Inverse Renewal rate of IP , 0 means IP are always changed
     """
+    #tor_ip_changer_0 = TorIpChanger(reuse_threshold=0)
+    #current_ip = tor_ip_changer_0.get_new_ip()
+
     timeout = timeout_value
     socket.setdefaulttimeout(timeout)
 

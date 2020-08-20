@@ -1,5 +1,6 @@
 import os
 import pyfiglet
+
 #multiprocess request
 from multiprocessing import Pool
 
@@ -22,8 +23,13 @@ def editor():
 def scraper_execution(url):
     """
     Command line emulator for scraping
+    Note that you will probably never call that function directly
+
+    Arguments
+    --------------------------------------------------
+    url : Url of hidden services
     """
-    execute = 'python3 src/helper.py ' + '{}'.format(url)
+    execute = 'python3 ./src/helper.py ' + '{}'.format(url)
     print(execute)
     try:
         os.system(execute)
@@ -36,6 +42,10 @@ def multiprocessing(task, processes=10):
     """
     Multiprocessing wrapper
     Clear former output directory and create a new one
+    Create one process for each onion service present in onion.txt
+    Note that this is not multithreading
+
+    Arguments
     --------------------------------------------------
     task : scraper_execution or editor
     processes : Number of URLs that will be processed at the same time
