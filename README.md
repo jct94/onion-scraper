@@ -22,7 +22,7 @@ or `brew services tor start` for MacOS users
 
 * Go to /etc/tor/torrc and uncomment - _**ControlPort 9051**_ , you may consider accessing torrc config file using `sudo nano torrc` to be able to save it
 
-###Privoxy setup
+### Privoxy setup
 
 * Install privoxy
 `sudo apt-get install privoxy`
