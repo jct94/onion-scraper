@@ -10,7 +10,7 @@ Before you run the torBot make sure the following things are done properly:
 
 * Run tor service
 `sudo service tor start`
-or `brew service tor start` for MacOS user
+or `brew services tor start` for MacOS user
 
 
 * Set a password for tor

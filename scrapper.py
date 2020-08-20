@@ -1,5 +1,8 @@
 import os
 import pyfiglet
+import datetime
+
+from datetime import datetime
 
 #multiprocess request
 from multiprocessing import Pool
@@ -89,7 +92,10 @@ if __name__ == '__main__':
             if choice == 1:
                 editor()
             elif choice == 2:
+                begin_time = datetime.now()
                 multiprocessing(scraper_execution)
+                print("Execution time for {} hidden service".format(len(content)))
+                print(datetime.now() - begin_time)
             else:
                 scrap_active = 0
                 quit()

@@ -22,6 +22,7 @@ with Controller.from_port(port=9051) as controller:
 
     try:
         controller.authenticate("16:529522CE3B4EB634609F2D0117A2D10121D91B5E438F2A580631717B7C")
+        controller.signal(Signal.NEWNYM)
     except Exception as e:
         print("""Wrong credentials - Verify your tor hashed password and
                  insert it properly within helper.py scripts""")
@@ -47,7 +48,7 @@ socket.getaddrinfo = getaddrinfo
 
 
 #Scrapping Onion links.
-def scrape(url, timeout_value = 10, reuse_threshold=0):
+def scrape(url, timeout_value = 10, reuse_threshold=0, verbose=False):
     """
     Core function : Scrape URL HTML content using bs4
     -------------------------------------------------
@@ -55,8 +56,6 @@ def scrape(url, timeout_value = 10, reuse_threshold=0):
     timeout : default value 60000ms - can be larger for onion services
     reuse_threshold : Inverse Renewal rate of IP , 0 means IP are always changed
     """
-    #tor_ip_changer_0 = TorIpChanger(reuse_threshold=0)
-    #current_ip = tor_ip_changer_0.get_new_ip()
 
     timeout = timeout_value
     socket.setdefaulttimeout(timeout)
@@ -71,7 +70,8 @@ def scrape(url, timeout_value = 10, reuse_threshold=0):
 
     try:
         print("Including html tags, response has a length of {}".format(len(content)))
-        print(content)
+        if verbose == True:
+            print(content)
     except ValueError:
         print("Scraping failed - It can be a dead link")
         pass
