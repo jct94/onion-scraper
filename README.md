@@ -8,11 +8,11 @@ A basic scrapper made in python with BeautifulSoup and Tor support to -
 ## Basic setup
 
 ### Tor setup
-Before you run the torBot make sure the following things are done properly:
+Before you run the scrapper make sure the following things are done properly:
 
 * Run tor service
 `sudo service tor start`
-or `brew services tor start` for MacOS user
+or `brew services tor start` for MacOS users
 
 
 * Set a password for tor
@@ -24,6 +24,24 @@ or `brew services tor start` for MacOS user
 
 ###Privoxy setup
 
+* Install privoxy
+`sudo apt-get install privoxy`
+or `brew install privoxy` for MacOS users
+
+
+* Change your privoxy config to get access to Tor Network  
+`cd /` to go to root directory then
+`cd /etc/privoxy`  
+
+* Open your config file  
+`nano config`
+
+* Uncomment following line  
+`forward-socks5 / localhost:9050`
+
+* Restart prixoxy to load changes
+`sudo /etc/init.d/privoxy restart` or
+`brew services restart privoxy`for MacOS users
 
 ### Deployment
 
