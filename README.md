@@ -1,11 +1,13 @@
 # TorScrapper
 A basic scrapper made in python with BeautifulSoup and Tor support to -
 
-* Scrape hidden services - Crawling functionality has not been included
-* Save the output in html - Can be a great input for machine learning algorithms
+* Scrape hidden services - crawling functionality has not been included
+* Save the output in html - Will be our input for machine learning algorithm
 
 
 ## Basic setup
+
+### Tor setup
 Before you run the torBot make sure the following things are done properly:
 
 * Run tor service
@@ -19,6 +21,8 @@ or `brew services tor start` for MacOS user
 * Modify value in scrapper.py
 
 * Go to /etc/tor/torrc and uncomment - _**ControlPort 9051**_ , you may consider accessing torrc config file using `sudo nano torrc` to be able to save it
+
+###Privoxy setup
 
 
 ### Deployment

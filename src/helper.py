@@ -1,7 +1,6 @@
 import sys
 import re
 import os
-
 import urllib.request
 
 #scraping library
@@ -17,12 +16,10 @@ import socks
 import socket
 
 
-#Initiating connectiom
+#Initiating connection - New IP at each connection by default
 with Controller.from_port(port=9051) as controller:
-
     try:
         controller.authenticate("16:529522CE3B4EB634609F2D0117A2D10121D91B5E438F2A580631717B7C")
-        controller.signal(Signal.NEWNYM)
     except Exception as e:
         print("""Wrong credentials - Verify your tor hashed password and
                  insert it properly within helper.py scripts""")
@@ -48,9 +45,10 @@ socket.getaddrinfo = getaddrinfo
 
 
 #Scrapping Onion links.
-def scrape(url, timeout_value = 10, reuse_threshold=0, verbose=False):
+def scrape(url, timeout_value = 10, verbose=False, dataframe_storage = True):
     """
     Core function : Scrape URL HTML content using bs4
+    Store it in pandas Dataframe ready to use for machine learning classification
     -------------------------------------------------
     url : onion hidden service
     timeout : default value 60000ms - can be larger for onion services
