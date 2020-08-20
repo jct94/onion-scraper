@@ -46,7 +46,6 @@ or `brew install privoxy` for MacOS users
 ### Deployment
 
 * Create your virtualenv and install requirements by running the following commands :
-
 `pip install virtualenv`  
 `virtualenv yourenv`  
 `source yourenv/bin/activate`   
