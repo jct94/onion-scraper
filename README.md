@@ -47,12 +47,11 @@ or `brew install privoxy` for MacOS users
 
 * Create your virtualenv and install requirements by running the following commands :
 
-```
-pip install virtualenv    
-virtualenv yourenv   
-source yourenv/bin/activate    
-pip install -r requirements.txt    
-```
+`pip install virtualenv`
+`virtualenv yourenv`  
+`source yourenv/bin/activate`   
+`pip install -r requirements.txt`   
+
 
 ## Running
 
